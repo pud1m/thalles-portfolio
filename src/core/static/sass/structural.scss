@@ -1,0 +1,117 @@
+/* Structural */
+
+//Padding
+.p {
+
+    &-1 {
+        padding: 1rem;
+    }
+
+    &-2 {
+        padding: 2rem;
+    }
+
+    &-3 {
+        padding: 3rem;
+    }
+
+    &t {
+        &-1{
+            padding-top: 1rem;
+        }
+        &-2{
+            padding-top: 2rem;
+        }
+        &-3{
+            padding-top: 3rem;
+        }
+    }
+
+    &x {
+        &-1{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        &-2{
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        &-3{
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    }
+}
+
+
+//Utilities
+.fill-parent {
+    width: 100%;
+}
+
+.fill-parent-sm {
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.max-50-lg {
+    @media only screen and (min-width: 769px) {
+        width: 50%;
+    }
+}
+
+
+.flex {
+    display: flex;
+
+    &.-wrap {
+        flex-wrap: wrap;
+    }
+
+    //Rows or cols
+    &.-row {
+        flex-flow: row;
+    }
+
+    &.-col {
+        flex-flow: column;
+    }
+
+    &.-row-col {
+        @media only screen and (max-width: 768px) {
+            flex-flow: row;
+        }
+        @media only screen and (min-width: 769px) {
+            flex-flow: column;
+        } 
+    }
+
+    &.-col-row {
+        @media only screen and (max-width: 768px) {
+            flex-flow: column;
+        }
+        @media only screen and (min-width: 769px) {
+            flex-flow: row;
+        } 
+    }
+
+    &.-break {
+        flex-basis: 100%;
+        height: 0;
+    }
+
+
+    //Justify and spacing
+    &.-justify {
+        &-s-even {
+            justify-content: space-evenly;
+        }
+        &-s-between {
+            justify-content: space-between;
+        }
+        &-center {
+            justify-content: center;
+        }
+    }
+}

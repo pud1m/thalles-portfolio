@@ -1,0 +1,117 @@
+/* Navbar */
+
+.navbar {
+
+    z-index: 10;
+
+    &.-main {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.-shrunk {
+
+            align-items: flex-start;
+            min-height: unset;
+            height: auto;
+
+            div:first-of-type {
+                justify-content: center;
+            }
+
+            div.social {
+                flex-flow: row;
+
+                img {
+                    padding: 0 0.5rem;
+                }
+
+                a:hover {
+                    @media only screen and (min-width: 1280px) {
+                        margin-right: -21rem;
+                        > .-text {
+                            transform: scaleX(0);
+                        }
+                    }
+                }
+            }
+
+            img.-icon {
+                width: 3rem;
+            }
+
+            h1 {
+                display: flex;
+                align-items: center;
+                word-spacing: unset;
+                font-size: 2rem;
+                line-height: 2rem;
+                width: auto;
+                text-align: center;
+            }
+
+            .-lang-pick {
+                display: block;
+            }
+
+            .big-text {
+                display: none;
+            }
+        }
+    }
+
+    &.-container {
+
+        @media only screen and (max-width: 768px) {
+            padding: 0 2rem;
+        }
+        @media only screen and (min-width: 769px) {
+            padding: 0 10%;
+        }
+    }
+
+    &.-menu {
+        flex-basis: 100%;
+        display: flex;
+        flex-flow: row;
+
+        @media only screen and (max-width: 768px) {
+            padding: 0 0.75rem;
+            width: calc(100% - 1.5rem);
+            justify-content: space-between;
+        }
+        @media only screen and (min-width: 769px) {
+            padding: 0 25%;
+            width: 50%;
+            justify-content: space-evenly;
+        }
+    }
+
+    &.-menu-item {
+        font-family: "Ginger Bold";
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        text-align: center;
+        letter-spacing: 0.15rem;
+
+        color: #ffffff;
+        padding: 0.25rem 0;
+
+        &:after {
+            content: url('../img/menu-zigzag.svg');
+            display: flex;
+            width: 3rem;
+            margin: 0 auto;
+            height: auto;
+            clip-path: inset(0 100% 0 0);
+        }
+
+        &:hover::after {
+            clip-path: inset(0 0 0 0);
+            animation: menuItemHover 0.5s $animateEaseInOutExpo;
+        }
+
+    }
+}

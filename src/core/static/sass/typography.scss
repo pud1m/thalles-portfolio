@@ -1,0 +1,66 @@
+/* Typography */
+
+
+//Sets the root rem size
+html{
+
+
+    @media only screen and (max-width: 320px) {
+        font-size: 12px;
+    }
+    @media only screen and (max-width: 768px) {
+        font-size: 16px;
+    }
+    @media only screen and (min-width: 769px) {
+        font-size: 16px;
+    }
+
+}
+
+//Utils
+.auto-br {
+    word-spacing: 8rem;
+}
+
+.no-decoration {
+    text-decoration: none;
+}
+
+
+//Typography for titles
+.title {
+    font-family: "Ginger Bold";
+
+
+    &.-big {
+        padding: 1rem;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 5.5rem;
+            line-height: 5rem;
+            text-align: center;
+        }
+        @media only screen and (min-width: 769px) {
+            font-size: 12rem;
+            line-height: 11.5rem;
+            text-align: left;
+        }
+    }
+}
+
+.big-text {
+    font-family: "Ginger Bold";
+
+    &.-subtitle {
+        text-align: center;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        @media only screen and (min-width: 769px) {
+            font-size: 2rem;
+            line-height: 1.75rem;
+        }
+    }
+
+}
