@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="pt-br">
+  <head>
+
+    {% block base-css %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block local-css %}
+    {% endblock %}
+
+    {% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#F9C81A" />
+    {% endblock %}
+
+    <title>Thalles Sales{% block title %}{% endblock %}</title>
+  </head>
+
+  <body>
+      <div class="site">
+        <!-- navbar -->
+        {% include "core/navbar.html" %}
+
+        <!-- page content -->
+        <main>
+            {% block content %}
+            {% endblock %}
+            <!-- footer -->
+            {% include "core/footer.html" %}
+        </main>
+    </div>
+  </body>
+
+  <!-- scripts -->
+  {% block base-scripts %}
+    <script src="{% static 'js/main.js' %}"></script>
+  {% endblock %}
+</html>
