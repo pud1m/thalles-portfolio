@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #CSS compressor
+    'compressor',
+
     #Project apps
     'core.apps.CoreConfig'
 ]
@@ -137,3 +140,14 @@ if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
