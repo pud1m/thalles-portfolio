@@ -1,0 +1,6 @@
+# ORGANIZATION: THALLES
+# AUTHOR: THALLES
+# Date: Abril 23rd, 2020
+#
+
+FROM postgres:12.1
