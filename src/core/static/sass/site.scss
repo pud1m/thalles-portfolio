@@ -8,6 +8,10 @@ main.site {
     z-index: 1;
 }
 
+body {
+    background-color: $color-1-secondary;
+}
+
 * {
     margin: 0;
 }

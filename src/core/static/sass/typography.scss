@@ -32,7 +32,7 @@ html{
     font-family: "Ginger Bold";
 
 
-    &.-big {
+    &.-really-big {
         padding: 1rem;
 
         @media only screen and (max-width: 768px) {
@@ -43,6 +43,21 @@ html{
         @media only screen and (min-width: 769px) {
             font-size: 12rem;
             line-height: 11.5rem;
+            text-align: left;
+        }
+    }
+
+    &.-big {
+        padding: 1rem;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 4.5rem;
+            line-height: 4rem;
+            text-align: left;
+        }
+        @media only screen and (min-width: 769px) {
+            font-size: 7rem;
+            line-height: 6.5rem;
             text-align: left;
         }
     }
@@ -62,5 +77,27 @@ html{
             line-height: 1.75rem;
         }
     }
+}
+
+.important-text {
+    font-family: "Ginger Bold";
+
+    &.-subtitle {
+        text-align: left;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.25rem;
+            line-height: 1.55rem;
+        }
+        @media only screen and (min-width: 769px) {
+            font-size: 1.35rem;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+.article-text {
+    font-family: "Poppins";
+
+    
 
 }

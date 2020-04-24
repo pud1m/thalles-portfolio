@@ -30,19 +30,17 @@
     </head>
 
     <body>
-        <div>
-            <main class="site">
-                <!-- navbar -->
-                {% include "core/navbar.html" %}
+        <main class="site">
+            <!-- navbar -->
+            {% include "core/navbar.html" %}
 
-                <!-- page content -->
-                {% block content %}
-                {% endblock %}
+            <!-- page content -->
+            {% block content %}
+            {% endblock %}
+        </main>
 
-                <!-- footer -->
-                {% include "core/footer.html" %}
-            </main>
-        </div>
+        <!-- footer -->
+        {% include "core/footer.html" %}
     </body>
 
   <!-- scripts -->

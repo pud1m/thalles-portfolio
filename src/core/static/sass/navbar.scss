@@ -19,6 +19,10 @@
 
             div:first-of-type {
                 justify-content: center;
+
+                @media only screen and (max-width: 768px) {
+                    width: calc(100% - 4rem);
+                }
             }
 
             div.social {
@@ -43,7 +47,7 @@
             }
 
             h1 {
-                display: flex;
+                display: none;
                 align-items: center;
                 word-spacing: unset;
                 font-size: 2rem;

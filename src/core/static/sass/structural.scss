@@ -43,6 +43,28 @@
     }
 }
 
+//Margin
+.m {
+
+    &-auto {
+        margin: auto;
+    }
+
+    &l {
+        &-n{
+            &1 {
+                margin-left: -1rem;
+            }
+            &2 {
+                margin-left: -2rem;
+            }
+            &3 {
+                margin-left: -3rem;
+            }
+        }
+    }
+}
+
 
 //Utilities
 .fill-parent {
@@ -59,6 +81,10 @@
     @media only screen and (min-width: 769px) {
         width: 50%;
     }
+}
+
+.d-inline-block {
+    display: inline-block;
 }
 
 
