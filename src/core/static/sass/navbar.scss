@@ -25,11 +25,22 @@
                 }
             }
 
+            .-menu {
+                transform: translateY(0);
+            }
+
             div.social {
                 flex-flow: row;
 
                 img {
                     padding: 0 0.5rem;
+                    transform-origin: center center;
+                    transition: all 0.4s $animateEaseInOutBack;
+                }
+
+                img:hover {
+                    margin: 0 0.15rem;
+                    transform: scale(1.1);
                 }
 
                 a:hover {
@@ -81,6 +92,8 @@
         display: flex;
         flex-flow: row;
 
+        transform: translateY(-2500%);
+
         @media only screen and (max-width: 768px) {
             padding: 0 0.75rem;
             width: calc(100% - 1.5rem);
@@ -113,6 +126,11 @@
         }
 
         &:hover::after {
+            clip-path: inset(0 0 0 0);
+            animation: menuItemHover 0.5s $animateEaseInOutExpo;
+        }
+
+        &.-current:after {
             clip-path: inset(0 0 0 0);
             animation: menuItemHover 0.5s $animateEaseInOutExpo;
         }

@@ -1,0 +1,50 @@
+{% extends type %}
+{% load static %}
+
+{% block content %}
+<section class="section -container -portfolio bg-2">
+    <h1 class="title -big c-s2 auto-br max-50-lg ml-n1">Portfolio</h1>
+    <div class="section -portfolio -list">
+        <div class="section -portfolio -list-item">
+            <div class="section -portfolio -list-item -picture -hasphone">
+                <video class="section -portfolio -list-item -picture -phone-video" src="{% static 'img/vid-upline.mp4' %}" autoplay loop muted preload="auto">
+                    Your browser does not support the video tag
+                </video>
+            </div>
+            <div class="section -portfolio -list-item -info">
+                <h2 class="important-text -card-title c-p2">Sistema Upline</h2>
+                <div class="section -portfolio -list-item -info -tags">
+                    <span class="important-text -tag c-white bg-1">#frontend</span>
+                    <span class="important-text -tag c-white bg-3">#backend</span>
+                    <span class="important-text -tag c-white bg-2">#devops</span>
+                    <span class="important-text -tag c-white bg-4">#maker</span>
+                </div>
+                <div class="section -portfolio -list-item -info -read-about important-text -subtitle">
+                    <span class="no-decoration c-white read-about-modal-link">Ler sobre</span>
+                </div>
+                <div class="section -portfolio -list-item -info -description article-text c-white">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                </div>
+                <div class="section -portfolio -list-item -info -website important-text -subtitle c-white">
+                    www.sistemaupline.com.br
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section -portfolio -modal -main bg-3 -hidden">
+        <div class="section -portfolio -modal -close c-p2">X</div>
+        <h2 class="title -big c-p2">Sistema Upline</h2>
+        <div class="section -portfolio -modal -phone-container">
+            <video class="section -portfolio -modal -phone-video" src="{% static 'img/vid-upline.mp4' %}" autoplay loop muted preload="auto">
+                Your browser does not support the video tag
+            </video>
+        </div>
+        <div class="section -portfolio -modal -description article-text c-white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        </div>
+        <div class="section -portfolio -modal -website important-text -subtitle c-p2">
+            www.sistemaupline.com.br
+        </div>
+    </div>
+</section>
+{% endblock %}

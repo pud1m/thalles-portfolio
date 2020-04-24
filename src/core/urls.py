@@ -10,5 +10,11 @@ urlpatterns = [
     ########################
     ################# Main
     # Public pages
-    path('', views.home, name='home'),
+    path('', views.lang_pick, name='lang_pick'),
+    path('about', views.about, name='about'),
+    path('portfolio', views.portfolio, name='portfolio'),
+
+    # Endpoints
+    path('endpoints/about', views.about, name='endpoint_about'),
+
 ]

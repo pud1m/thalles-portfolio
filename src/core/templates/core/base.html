@@ -30,21 +30,26 @@
     </head>
 
     <body>
-        <main class="site">
+        <div class="site">
             <!-- navbar -->
-            {% include "core/navbar.html" %}
+            {% include "core/navbar.html" with no_shrink=no_shrink current_page=page_settings.current_page icon_color=page_settings.icon_color %}
 
             <!-- page content -->
-            {% block content %}
-            {% endblock %}
-        </main>
+            <main>
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
 
         <!-- footer -->
         {% include "core/footer.html" %}
+        {% include "core/loader.html" %}
     </body>
 
   <!-- scripts -->
     {% block base-scripts %}
+        <script src="{% static 'js/jquery.stripped.min.js' %}"></script>
+        <script src="{% static 'js/intercooler.min.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
     {% endblock %}
 </html>

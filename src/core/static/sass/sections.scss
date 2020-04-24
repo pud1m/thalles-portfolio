@@ -15,6 +15,7 @@
 
 
     &.-container {
+        overflow-x: hidden;
         z-index: 1;
         position: absolute;
         left: 0;
@@ -32,9 +33,13 @@
         }
     }
 
+    &.-lang-picker {
+        //background: $color-1-primary;
+        //background: radial-gradient(circle, $color-1-primary 0%, gradientTo($color-1-primary) 100%);
+    }
+
     &.-home {
-        background: rgb(251,101,66);
-        background: radial-gradient(circle, rgba(251,101,66,1) 0%, rgba(252,99,65,1) 100%);
+        
 
         display: flex;
 
@@ -63,6 +68,7 @@
 
             background-repeat: no-repeat;
             background-size: cover;
+            background-image: url(../img/hand-peace2.svg);
 
             position: relative;
             align-self: flex-end;
@@ -100,8 +106,8 @@
                     margin-right: -7%;
                 }
                 @media only screen and (min-width: 769px) {
-                    margin-right: -5%;
                     width: 40%;
+                    margin-right: -5%;
                 }
                 border-radius: 50%;
                 margin-top: -5%;
@@ -116,6 +122,279 @@
             }
             @media only screen and (min-width: 769px) {
                 width: 100%;
+            }
+        }
+    }
+
+    &.-portfolio {
+
+        &.-container {
+            @media only screen and (max-width: 1280px) {
+                padding: 130px 1rem 0 1rem;
+                width: calc(100% - 2rem);
+            }
+        }
+
+        &.-modal {
+
+            &.-main {
+                display: none;
+                @media only screen and (max-width: 768px) {
+                    display: flex;
+                    flex-flow: column;
+    
+                    position: absolute;
+                    top: 20%;
+                    left: 0;
+    
+                    width: 100%;
+                    min-height: 80%;
+                    z-index: 10;
+                    transform: translateX(100%);
+                }
+
+                &.-on {
+                    transform: translateX(0);
+                    animation: modalIn 0.5s $animateEaseInOutBack;
+                }
+
+                &.-off {
+                    transform: translateX(100%);
+                    animation: modalOut 0.5s $animateEaseInOutBack;
+                }
+            }
+
+            &.-close {
+                padding: 1rem;
+                float: right;
+                width: 10%;
+                align-self: flex-end;
+                text-align: center;
+                font-family: "Ginger Bold";
+                font-size: 2rem;
+            }
+
+            &.-phone {
+
+                &-container {
+                    padding: 5%;
+                    margin: 5% 0;
+                }
+
+                &-container:after {
+                    content: url(../img/elements/phone.svg);
+                    position: absolute;
+                    z-index: 250;
+                    width: 84%;
+                    margin-top: -6%;
+                    margin-left: -82%;
+                    
+                }
+
+                &-video {
+                    z-index: 5;
+                    width: 90%;
+                    padding: 0 0;
+                    margin-top: 0.3%;
+                    margin-left: 1%;
+                }
+            }
+
+            &.-description {
+                padding: 2rem 3rem;
+                line-height: 2rem;
+            }
+
+            &.-website {
+                text-align: center;
+                padding: 2rem 3rem;
+                line-height: 2rem;
+            }
+        }
+        
+
+        &.-list {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+
+            @media only screen and (max-width: 1280px) {
+                flex-flow: column;
+            }
+            @media only screen and (min-width: 1281px) {
+                flex-flow: row;
+            }
+        }
+
+        &.-list-item {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            display: flex;
+            width: 100%;
+
+            @media only screen and (max-width: 1280px) {
+                margin: 2rem 0;
+            }
+            @media only screen and (min-width: 1281px) {
+                margin: 2rem 2.5%;
+            }
+
+            &.-picture {
+                border-radius: 1rem 0 0 1rem;
+                margin: 0;
+                width: 40%;
+                background-color: none;
+                background-color: $color-2-secondary;
+
+                @media only screen and (max-width: 1280px) {
+                    padding: 0.5rem 2.2%;
+                    width: 30%;
+                }
+
+                &.-hasphone {
+                    @media only screen and (max-width: 1280px) {
+                        justify-content: flex-start;
+                        flex-flow: column;
+                    }
+                }
+
+                &.-hasphone:after {
+                    content: url(../img/elements/phone.svg);
+                    width: 10%;
+                    height: auto;
+                    position: absolute;
+                    z-index: 6;
+
+                    @media only screen and (max-width: 1280px) {
+                        width: calc((100% - 2rem)/100 * 30);
+                        max-width: 240px;
+                        margin: calc(6px + 0.5%) 0;
+                        margin-left: -0.2%;
+                    }
+                    @media only screen and (min-width: 1281px) {
+                        width: 190px;
+                        margin-top: 0.8rem;
+                        margin-left: 0.55rem;
+                    }
+                }
+
+                &.-phone-video {
+                    border-radius: 0;
+                    z-index: 5;
+
+                    @media only screen and (max-width: 1280px) {
+                        width: 100%;
+                        padding: 0 0;
+                        margin-top: 0.3%;
+                        margin-left: 1%;
+                    }
+                    @media only screen and (min-width: 1281px) {
+                        width: 83%;
+                        margin: 15.5% 5.8%;
+                    }
+                }
+
+                
+            }
+
+            &.-info {
+                border-radius: 0 1rem 1rem 0;
+                margin: 0;
+                width: 100%;
+                background-color: $color-2-secondary;
+
+                flex-flow: column;
+                @media only screen and (max-width: 1280px) {
+                    width: 70%;
+                }
+                @media only screen and (min-width: 1281px) {
+                    width: 100%;
+                }
+
+                h2 {
+                    @media only screen and (max-width: 1280px) {
+                        text-align: center;
+                        padding: 1rem 1rem;
+                    }
+                    @media only screen and (min-width: 1281px) {
+                        text-align: right;
+                        padding: 1rem 2rem;
+                    }
+
+                    border-radius: 0 1rem 0 0;
+                    margin: -1px;
+                }
+
+                &.-tags {
+                    background-color: none;
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: flex-end;
+                    margin: 0.5rem 0;
+                    //padding: 0.5rem;
+                    width: 100%;
+
+                    @media only screen and (max-width: 1280px) {
+                        flex-flow: row;
+                        flex-wrap: wrap;
+                    }
+                    @media only screen and (min-width: 1281px) {
+                        flex-flow: row;
+                    }
+
+                    span {
+                        @media only screen and (max-width: 1280px) {
+                            padding: 0.25rem 0.5rem;
+                        }
+                        @media only screen and (min-width: 1281px) {
+                            padding: 0.5rem 1rem;
+                        }
+                        border-radius: 0.5rem;
+                        margin: 0.25rem 0.5rem;
+                    }
+                }
+
+                &.-read-about {
+                    display: block;
+                    text-align: center;
+                    @media only screen and (min-width: 769px) {
+                        display: none;
+                    }
+                    border-radius: 0;
+                    margin: 1rem;
+                    width: calc(100% - 2rem);
+                }
+
+                &.-description {
+                    display: block;
+                    @media only screen and (max-width: 768px) {
+                        display: none;
+                    }
+                    border-radius: 0;
+                    margin: 1rem;
+                    width: calc(100% - 2rem);
+                }
+
+                &.-website {
+                    display: block;
+                    border-radius: 0;
+                    float: bottom;
+
+                    @media only screen and (max-width: 768px) {
+                        display: none;
+                    }
+                    @media only screen and (min-width: 769px) {
+                        text-align: right;
+                        margin: 2rem;
+                        width: calc(100% - 4rem);
+                    }
+                }
+
+                div:last-of-type {
+                    margin-top: auto;
+                }
             }
         }
     }

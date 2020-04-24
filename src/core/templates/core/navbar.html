@@ -1,15 +1,15 @@
 {% load static %}
 
 
-<nav class="navbar -main -shrunk flex -col -wrap">
+<nav class="navbar -main flex -col -wrap {% if not no_shrink %}-shrunk{% endif %}" id="navbar">
     <div class="navbar -container flex -wrap">
         <div class="social -container p-1 fill-parent-sm">
             <a href="#">
-                <img class="social -icon c-b-to-s1" src="{% static 'img/icons/github.svg' %}">
+                <img class="social -icon {{icon_color}}" src="{% static 'img/icons/github.svg' %}">
                 <span class="social -text">/pud1m</span>
             </a>
             <a href="#">
-                <img class="social -icon c-b-to-s1" src="{% static 'img/icons/linkedin.svg' %}">
+                <img class="social -icon {{icon_color}}" src="{% static 'img/icons/linkedin.svg' %}">
                 <span class="social -text">/thalles-sales</span>
             </a>
         </div>
@@ -17,15 +17,15 @@
 
         <div class="flex -break"></div>
         <div class="big-text -subtitle c-s1 fill-parent pt-3 flex -row -justify-center">
-            <a href="#" class="trans-push-siblings px-1 c-s1 no-decoration">Português</a>
+            <a href=" " ic-get-from="{% url 'endpoint_about' %}" ic-target="main" ic-trigger-delay="300ms" class="trans-push-siblings px-1 c-s1 no-decoration lang-pick-home">Português</a>
             |
-            <a href="#" class="trans-push-siblings px-1 c-s1 no-decoration">English</a>
+            <a href=" " ic-get-from="{% url 'endpoint_about' %}" ic-target="main" ic-trigger-delay="300ms" class="trans-push-siblings px-1 c-s1 no-decoration lang-pick-home">English</a>
         </div>
     </div>
     <div class="navbar -menu flex -wrap">
-        <a href="#" class="navbar -menu-item no-decoration">Sobre</a>
-        <a href="#" class="navbar -menu-item no-decoration">Portfolio</a>
-        <a href="#" class="navbar -menu-item no-decoration">Skills</a>
-        <a href="#" class="navbar -menu-item no-decoration">Contato</a>
+        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'about' %}-current{% endif %}" data-target="about">Sobre</a>
+        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'portfolio' %}-current{% endif %}" data-target="portfolio">Portfolio</a>
+        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'skills' %}-current{% endif %}" data-target="skills">Skills</a>
+        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'contact' %}-current{% endif %}" data-target="contact">Contato</a>
     </div>
 </nav>

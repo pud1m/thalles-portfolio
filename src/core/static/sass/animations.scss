@@ -5,8 +5,8 @@ $animateEaseInOutBack: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 $animateEaseOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
 $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
 
-//Transitions
 
+//Transitions
 .trans-push-siblings {
     transition: all 0.4s $animateEaseInOutBack;
 
@@ -16,8 +16,8 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
     }
 }
 
-//Animations
 
+//Animations
 @keyframes menuItemHover {
     0% {
         content: url('../img/menu-zigzag.svg');
@@ -37,103 +37,40 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
     }
 }
 
-
-@keyframes menuShrinkMain {
+@keyframes modalIn {
     0% {
-        align-items: center;
+        transform: translateX(100%);
     }
     100% {
-        align-items: flex-start;
+        transform: translateX(0);
     }
 }
 
-@keyframes menuShrinkContainer {
+@keyframes modalOut {
     0% {
-        justify-content: unset;
+        transform: translateX(0);
     }
     100% {
-        justify-content: center;
+        transform: translateX(100%);
     }
 }
 
-@keyframes menuShrinkDivSocial {
+
+//Loader animations
+@keyframes loaderElementSlideInUp {
     0% {
-        @media only screen and (max-width: 768px) {
-            flex-flow: row;
-        }
-        @media only screen and (min-width: 769px) {
-            flex-flow: column;
-        }
+        transform: translateY(100%);
     }
     100% {
-        flex-flow: row;
+        transform: translateY(0);
     }
 }
 
-@keyframes menuShrinkDivSocialImg {
+@keyframes loaderElementSlideOutUp {
     0% {
-        padding: 0;
-        @media only screen and (max-width: 768px) {
-            width: 3rem;
-        }
-        @media only screen and (min-width: 769px) {
-            width: 5rem;
-        }
+        transform: translateY(0);
     }
     100% {
-        padding: 0 1rem;
-        width: 3rem;
-    }
-}
-
-@keyframes menuShrinkH1 {
-    0% {
-        @media only screen and (max-width: 768px) {
-            font-size: 5.5rem;
-            line-height: 5rem;
-            text-align: center;
-        }
-        @media only screen and (min-width: 769px) {
-            font-size: 12rem;
-            line-height: 11.5rem;
-            text-align: left;
-        }
-        word-spacing: 8rem;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        width: auto;
-        @media only screen and (min-width: 769px) {
-            width: 50%;
-        }
-    }
-    100% {
-        display: flex;
-        align-items: center;
-        word-spacing: unset;
-        font-size: 2rem;
-        line-height: 2rem;
-        width: auto;
-        text-align: center;
-    }
-}
-@keyframes menuShrinkLangPick {
-    0% {
-        opacity: 0;
-        display: none;
-    }
-    100% {
-        opacity: 1;
-        display: flex;
-    }
-}
-@keyframes menuShrinkBigText {
-    0% {
-        opacity: 1;
-        display: flex;
-    }
-    100% {
-        opacity: 0;
-        display: none;
+        transform: translateY(-100%);
     }
 }
