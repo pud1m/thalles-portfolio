@@ -149,7 +149,7 @@ const moveLampMobile = (event) => {
         y: String(maxRotation/orientationRange.y * parseFloat(event.gamma)),
     }
 
-    let styleRotation = `transform: skew(${deviceRotation.y}deg, 0deg) rotateX(${deviceRotation.b*6}deg)`;
+    let styleRotation = `transform: skew(${deviceRotation.y*2}deg, 0deg) translateY(${deviceRotation.b*6}px)`;
     document.querySelector('.-bulb').setAttribute('style', styleRotation);
 
 }
