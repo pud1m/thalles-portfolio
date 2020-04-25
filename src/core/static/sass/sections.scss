@@ -404,9 +404,10 @@
             content: url(../img/light-bulb.svg);
 
             @media only screen and (max-width: 768px) {
-                width: 30%;
+                width: 32%;
                 padding: 0;
-                margin-top: 20vw;
+                margin-top: 6vw;
+                margin-left: -15px;
             }
             @media only screen and (min-width: 769px) {
                 padding: 150px 10% 0 15%;
