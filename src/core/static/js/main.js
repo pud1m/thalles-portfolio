@@ -1,7 +1,6 @@
 //Delay function
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
-
 window.onload = (event) => {
 
     //Home lang picker event listener
@@ -12,8 +11,13 @@ window.onload = (event) => {
     document.querySelectorAll('#portfolio_modal_close').forEach(element => element.addEventListener('click', closeModalPortfolio));
 
     //Skills moving-lamp event listener
-    if (document.querySelector('.-bulb') && parseInt(window.innerWidth) > 768) {
-        window.addEventListener('mousemove', moveLamp);
+    if (document.querySelector('.-bulb')) {
+        if ( parseInt(window.innerWidth) > 768 ){
+            window.addEventListener('mousemove', moveLampDesktop);
+        }
+        else {
+            window.addEventListener('devicemotion', moveLampMobile);
+        }
     }
 };
 
@@ -107,7 +111,7 @@ const closeModalPortfolio = async () => {
 
 //=======Skills
 
-const moveLamp = (event) => {
+const moveLampDesktop = (event) => {
     let vPort = {
         w: window.innerWidth,
         h: window.innerHeight
@@ -122,6 +126,18 @@ const moveLamp = (event) => {
         y: mousePos.h/vPort.h
     }
 
-    let styleRotation = `transform: rotateY(${Math.abs(axisRotation.x) * 15}deg) rotateX(${Math.abs(axisRotation.y) * 10}deg)`;
+    let axisTranslation = {
+        x: (mousePos.w - vPort.w/2)/vPort.w,
+        y: (mousePos.h - vPort.h/2)/vPort.h,
+    }
+
+    let styleRotation = `transform: rotateY(${Math.abs(axisRotation.x) * 8}deg) rotateX(${Math.abs(axisRotation.y) * 6}deg) translate(${axisTranslation.x * 4}px, ${axisTranslation.y * 4}px)`;
     document.querySelector('.-bulb').setAttribute('style', styleRotation);
+}
+
+const moveLampMobile = (event) => {
+
+    let styleRotation = `transform: rotateY(${event.beta * 8}deg) rotateX(${event.gamma * 6}deg)`;
+    document.querySelector('.-bulb').setAttribute('style', styleRotation);
+
 }
