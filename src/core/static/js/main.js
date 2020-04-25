@@ -137,11 +137,11 @@ const moveLampDesktop = (event) => {
 
 const moveLampMobile = (event) => {
 
-    let maxRotation = 15;
+    let maxRotation = 30;
     
     let deviceRotation = {
-        b: maxRotation/360 * parseFloat(event.gamma),
-        y: maxRotation/360 * parseFloat(event.beta),
+        b: String(maxRotation/360 * parseFloat(event.gamma)),
+        y: String(maxRotation/360 * parseFloat(event.beta)),
     }
 
     let styleRotation = `transform: rotateY(${deviceRotation.y}deg) rotateX(${deviceRotation.b}deg)`;
