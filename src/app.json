@@ -1,0 +1,14 @@
+{
+    "name": "thalles",
+    "description": "thalles",
+    "keywords": [
+      "python",
+      "django",
+      "heroku"
+    ],
+    "scripts": {
+      "dokku": {
+        "predeploy": "apt-get update; apt-get install language-pack-pt -y"
+      }
+    }
+}
