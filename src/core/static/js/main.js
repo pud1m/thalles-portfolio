@@ -137,7 +137,7 @@ const moveLampDesktop = (event) => {
 
 const moveLampMobile = (event) => {
 
-    let maxRotation = 30;
+    let maxRotation = 120;
     
     let deviceRotation = {
         b: String(maxRotation/360 * parseFloat(event.gamma)),
