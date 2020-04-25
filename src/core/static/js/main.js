@@ -137,7 +137,7 @@ const moveLampDesktop = (event) => {
 
 const moveLampMobile = (event) => {
 
-    let styleRotation = `transform: rotateY(${parseFloat(event.gamma) / 5}deg) rotateX(${parseFloat(event.beta) / 5}deg)`;
+    let styleRotation = `transform: rotateY(${parseFloat(event.gamma) }deg) rotateX(${parseFloat(event.beta) }deg)`;
     document.querySelector('.-bulb').setAttribute('style', styleRotation);
 
 }
