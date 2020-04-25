@@ -16,6 +16,14 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
     }
 }
 
+.hide-send-up {
+    transform: translateY(-100%) !important;
+}
+
+.hide-send-up-high {
+    transform: translateY(-500%) !important;
+}
+
 
 //Animations
 @keyframes menuItemHover {

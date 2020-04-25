@@ -7,12 +7,12 @@
     <div class="section -portfolio -list">
         <div class="section -portfolio -list-item">
             <div class="section -portfolio -list-item -picture -hasphone">
-                <video class="section -portfolio -list-item -picture -phone-video" src="{% static 'img/vid-upline.mp4' %}" autoplay loop muted preload="auto">
+                <video class="section -portfolio -list-item -picture -phone-video" src="{% static 'img/vid-upline.mp4' %}" autoplay loop muted preload="auto" data-job-id="1" data-job-type="video">
                     Your browser does not support the video tag
                 </video>
             </div>
             <div class="section -portfolio -list-item -info">
-                <h2 class="important-text -card-title c-p2">Sistema Upline</h2>
+                <h2 class="important-text -card-title c-p2" data-job-id="1" data-job-type="name">Sistema Upline</h2>
                 <div class="section -portfolio -list-item -info -tags">
                     <span class="important-text -tag c-white bg-1">#frontend</span>
                     <span class="important-text -tag c-white bg-3">#backend</span>
@@ -20,30 +20,30 @@
                     <span class="important-text -tag c-white bg-4">#maker</span>
                 </div>
                 <div class="section -portfolio -list-item -info -read-about important-text -subtitle">
-                    <span class="no-decoration c-white read-about-modal-link">Ler sobre</span>
+                    <span class="no-decoration c-white read-about-modal-link" data-job-id="1">Ler sobre</span>
                 </div>
-                <div class="section -portfolio -list-item -info -description article-text c-white">
+                <div class="section -portfolio -list-item -info -description article-text c-white" data-job-id="1" data-job-type="description">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                 </div>
-                <div class="section -portfolio -list-item -info -website important-text -subtitle c-white">
+                <div class="section -portfolio -list-item -info -website important-text -subtitle c-white" data-job-id="1" data-job-type="website">
                     www.sistemaupline.com.br
                 </div>
             </div>
         </div>
     </div>
-    <div class="section -portfolio -modal -main bg-3 -hidden">
-        <div class="section -portfolio -modal -close c-p2">X</div>
-        <h2 class="title -big c-p2">Sistema Upline</h2>
+    <div class="section -portfolio -modal -main bg-3 -hidden" id="portfolio_modal_main">
+        <div class="section -portfolio -modal -close c-p2" id="portfolio_modal_close">X</div>
+        <h2 class="title -big c-p2" id="portfolio_modal_name"></h2>
         <div class="section -portfolio -modal -phone-container">
-            <video class="section -portfolio -modal -phone-video" src="{% static 'img/vid-upline.mp4' %}" autoplay loop muted preload="auto">
+            <video class="section -portfolio -modal -phone-video" src="" autoplay loop muted preload="auto" id="portfolio_modal_video">
                 Your browser does not support the video tag
             </video>
         </div>
-        <div class="section -portfolio -modal -description article-text c-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        <div class="section -portfolio -modal -description article-text c-white" id="portfolio_modal_description">
+            
         </div>
-        <div class="section -portfolio -modal -website important-text -subtitle c-p2">
-            www.sistemaupline.com.br
+        <div class="section -portfolio -modal -website important-text -subtitle c-p2" id="portfolio_modal_website">
+            
         </div>
     </div>
 </section>

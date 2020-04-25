@@ -96,3 +96,21 @@
         font-family: "Poppins";
     }
 }
+
+.name-stamp {
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
+    @media only screen and (min-width: 769px) {
+        position: fixed;
+        top: 300px;
+        left: -55px;
+        z-index: 10;
+    
+        transform: rotate(-90deg);
+        //text-transform: uppercase;
+
+        font-family: "Ginger Bold";
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,25 @@
+
+<div class="section -portfolio -list-item">
+    <div class="section -portfolio -list-item -picture -hasphone">
+        <video class="section -portfolio -list-item -picture -phone-video" src="{% static 'img/vid-upline.mp4' %}" autoplay loop muted preload="auto" data-job-id="{{data.id}}" data-job-type="video">
+            Your browser does not support the video tag
+        </video>
+    </div>
+    <div class="section -portfolio -list-item -info">
+        <h2 class="important-text -card-title c-p2" data-job-id="{{data.id}}" data-job-type="name">{{data.name}}</h2>
+        <div class="section -portfolio -list-item -info -tags">
+            {% for tag in data.tags %}
+            <span class="important-text -tag c-white bg-1">#{{tag}}</span>
+            {% endfor %}
+        </div>
+        <div class="section -portfolio -list-item -info -read-about important-text -subtitle">
+            <span class="no-decoration c-white read-about-modal-link" data-job-id="{{data.id}}">Ler sobre</span>
+        </div>
+        <div class="section -portfolio -list-item -info -description article-text c-white" data-job-id="{{data.id}}" data-job-type="description">
+            {{data.description}}
+        </div>
+        <div class="section -portfolio -list-item -info -website important-text -subtitle c-white" data-job-id="{{data.id}}" data-job-type="website">
+            {{data.website}}
+        </div>
+    </div>
+</div>

@@ -144,11 +144,11 @@
                     flex-flow: column;
     
                     position: absolute;
-                    top: 20%;
+                    top: 10%;
                     left: 0;
     
                     width: 100%;
-                    min-height: 80%;
+                    min-height: 90%;
                     z-index: 10;
                     transform: translateX(100%);
                 }
@@ -219,13 +219,7 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-
-            @media only screen and (max-width: 1280px) {
-                flex-flow: column;
-            }
-            @media only screen and (min-width: 1281px) {
-                flex-flow: row;
-            }
+            flex-flow: column;
         }
 
         &.-list-item {
@@ -291,8 +285,8 @@
                         margin-left: 1%;
                     }
                     @media only screen and (min-width: 1281px) {
-                        width: 83%;
-                        margin: 15.5% 5.8%;
+                        width: 80%;
+                        margin: 14% 5%;
                     }
                 }
 
@@ -395,6 +389,29 @@
                 div:last-of-type {
                     margin-top: auto;
                 }
+            }
+        }
+    }
+
+    &.-skills {
+
+
+        h1 {
+            width: 100%;
+        }
+
+        *.-bulb {
+            content: url(../img/light-bulb.svg);
+
+            @media only screen and (max-width: 768px) {
+                width: 30%;
+                padding: 0;
+                margin-top: 20vw;
+            }
+            @media only screen and (min-width: 769px) {
+                width: 20%;
+                min-height: calc(60vh - 150px);
+                margin: calc(70px + 8vh) 0 -20% -5%;
             }
         }
     }

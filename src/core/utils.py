@@ -23,17 +23,20 @@ def get_page_settings(page):
     elif page == 'portfolio':
         return {
             'current_page': 'portfolio',
-            'icon_color': 'c-b-to-s2'
+            'icon_color': 'c-b-to-s2',
+            'stamp_color': 'c-s-2',
         }
     elif page == 'skills':
         return {
             'current_page': 'skills',
-            'icon_color': 'c-b-to-s3'
+            'icon_color': 'c-b-to-s3',
+            'stamp_color': 'c-s3',
         }
     elif page == 'contact':
         return {
             'current_page': 'contact',
-            'icon_color': 'c-b-to-s4'
+            'icon_color': 'c-b-to-s4',
+            'stamp_color': 'c-s4',
         }
     else:
         return None

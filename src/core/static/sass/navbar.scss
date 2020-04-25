@@ -78,6 +78,7 @@
     }
 
     &.-container {
+        transition: all 0.4s $animateEaseInOutBack;
 
         @media only screen and (max-width: 768px) {
             padding: 0 2rem;
@@ -88,6 +89,8 @@
     }
 
     &.-menu {
+        transition: all 0.4s $animateEaseInOutBack;
+
         flex-basis: 100%;
         display: flex;
         flex-flow: row;

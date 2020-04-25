@@ -38,3 +38,14 @@ def portfolio(request):
         'page_settings': get_page_settings('portfolio')
     }
     return HttpResponse(template.render(context, request))
+
+
+def skills(request):
+    """Skills Page"""
+    template = loader.get_template('core/pages/skills.html')
+
+    context = {
+        'type': get_template_type(request),
+        'page_settings': get_page_settings('skills')
+    }
+    return HttpResponse(template.render(context, request))

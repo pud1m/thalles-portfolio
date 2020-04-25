@@ -29,3 +29,9 @@
         <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'contact' %}-current{% endif %}" data-target="contact">Contato</a>
     </div>
 </nav>
+
+{% if stamp_color %}
+<div class="name-stamp {{stamp_color}}">
+    Thalles Sales.
+</div>
+{% endif %}
