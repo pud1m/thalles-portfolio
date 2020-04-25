@@ -16,7 +16,7 @@ window.onload = (event) => {
             window.addEventListener('mousemove', moveLampDesktop);
         }
         else {
-            window.addEventListener('devicemotion', moveLampMobile);
+            window.addEventListener('deviceorientation', moveLampMobile);
         }
     }
 };
