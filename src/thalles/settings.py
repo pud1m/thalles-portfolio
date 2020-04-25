@@ -140,6 +140,9 @@ if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    COMPRESS_OFFLINE = True
+    LIBSASS_OUTPUT_STYLE = 'compressed'
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
@@ -151,3 +154,4 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
+
