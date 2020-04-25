@@ -131,20 +131,25 @@ const moveLampDesktop = (event) => {
         y: (mousePos.h - vPort.h/2)/vPort.h,
     }
 
-    let styleRotation = `transform: rotateY(${Math.abs(axisRotation.x) * 8}deg) rotateX(${Math.abs(axisRotation.y) * 6}deg) translate(${axisTranslation.x * 4}px, ${axisTranslation.y * 4}px)`;
+    let styleRotation = `transform: skew(${axisTranslation.x}deg, 0deg) translate(${axisTranslation.x * 4}px, ${axisTranslation.y * 4}px)`;
     document.querySelector('.-bulb').setAttribute('style', styleRotation);
 }
 
 const moveLampMobile = (event) => {
 
-    let maxRotation = 120;
-    
-    let deviceRotation = {
-        b: String(maxRotation/360 * parseFloat(event.gamma)),
-        y: String(maxRotation/360 * parseFloat(event.beta)),
+    let orientationRange = {
+        b: 180, //beta  (x axis)
+        y: 90   //gamma (y axis)
     }
 
-    let styleRotation = `transform: rotateY(${deviceRotation.y}deg) rotateX(${deviceRotation.b}deg)`;
+    let maxRotation = 5; //deg
+    
+    let deviceRotation = {
+        b: String(maxRotation/orientationRange.b * parseFloat(event.beta)),
+        y: String(maxRotation/orientationRange.y * parseFloat(event.gamma)),
+    }
+
+    let styleRotation = `transform: skew(${deviceRotation.y}deg, ${deviceRotation.b}deg)`;
     document.querySelector('.-bulb').setAttribute('style', styleRotation);
 
 }
