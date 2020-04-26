@@ -31,6 +31,10 @@
             width: 70%;
             min-height: calc(100vh - 150px);
         }
+
+        h1 {
+            animation: slideFromRight 0.7s $animateEaseInOutBack 0.2s;
+        }
     }
 
     &.-lang-picker {
@@ -51,6 +55,7 @@
         }
 
         &.-peace{
+            animation: slideFromBottom 0.5s $animateEaseInOutExpo 0.2s;
 
             @media only screen and (max-width: 768px) {
                 width: 40%;
@@ -97,10 +102,12 @@
             }
 
             &-info {
+                animation: popInDelayOneQuarter 0.4s $animateEaseInOutBack 0.2s;
                 width: 60%;
             }
 
             &-picture {
+                animation: popIn 0.6s $animateEaseInOutBack;
                 @media only screen and (max-width: 768px) {
                     width: 50%;
                     margin-right: -7%;
@@ -115,6 +122,7 @@
         }
 
         &.-comment {
+            animation: popInDelayOneHalf 0.6s $animateEaseInOutBack 0.2s;
             padding-top: 1rem;
 
             @media only screen and (max-width: 768px) {
@@ -132,6 +140,10 @@
             @media only screen and (max-width: 1280px) {
                 padding: 130px 1rem 0 1rem;
                 width: calc(100% - 2rem);
+            }
+
+            h1 {
+                animation: slideFromLeft 0.7s $animateEaseInOutBack 0.2s;
             }
         }
 
@@ -223,6 +235,8 @@
         }
 
         &.-list-item {
+            animation: slideFromRight 0.4s $animateEaseInOutExpo 0.2s;
+
             background-color: #ffffff;
             border-radius: 1rem;
             display: flex;
@@ -397,10 +411,12 @@
 
 
         h1 {
+            animation: slideFromLeft 0.8s $animateEaseInOutExpo 0.2s;
             width: 100%;
             padding: 1rem 2rem;
         }
         &.-bulb {
+            animation: slideFromTop 0.7s $animateEaseInOutExpo 0.2s;
             content: url(../img/light-bulb.svg);
 
             @media only screen and (max-width: 768px) {
@@ -432,6 +448,7 @@
         &.-category {
 
             &.-main {
+                animation: slideFromRight 0.4s $animateEaseInOutExpo 0.2s;
                 display: flex;
                 flex-flow: column;
                 align-items: flex-end;

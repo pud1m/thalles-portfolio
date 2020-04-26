@@ -26,6 +26,72 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
 
 
 //Animations
+
+//Generic
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(400%)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-200%)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+@keyframes slideFromBottom {
+    0% {
+        transform: translateY(500%)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
+@keyframes slideFromTop {
+    0% {
+        transform: translateY(-500%)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
+@keyframes popIn {
+    0% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(100%)
+    }
+}
+@keyframes popInDelayOneQuarter {
+    0% {
+        transform: scale(0)
+    }
+    25% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(100%)
+    }
+}
+@keyframes popInDelayOneHalf {
+    0% {
+        transform: scale(0)
+    }
+    50% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(100%)
+    }
+}
+
+//Menu
 @keyframes menuItemHover {
     0% {
         content: url('../img/menu-zigzag.svg');
@@ -45,6 +111,7 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
     }
 }
 
+//Modal
 @keyframes modalIn {
     0% {
         transform: translateX(100%);
@@ -53,7 +120,6 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
         transform: translateX(0);
     }
 }
-
 @keyframes modalOut {
     0% {
         transform: translateX(0);

@@ -47,8 +47,10 @@
 
   <!-- scripts -->
     {% block base-scripts %}
+        {% compress js %}
         <script src="{% static 'js/jquery.stripped.min.js' %}"></script>
         <script src="{% static 'js/intercooler.min.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
+        <script type="text/es6" src="{% static 'js/main.js' %}"></script>
+        {% endcompress %}
     {% endblock %}
 </html>

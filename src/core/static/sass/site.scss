@@ -37,22 +37,22 @@ body {
             &-up {
                 &-in {
                     transform: translateY(0);
-                    animation: loaderElementSlideInUp 0.5s $animateEaseOutBack;
+                    animation: loaderElementSlideInUp 0.4s $animateEaseOutBack;
                 }
                 &-out {
                     transform: translateY(-100%);
-                    animation: loaderElementSlideOutUp 0.5s $animateEaseOutBack;
+                    animation: loaderElementSlideOutUp 0.4s $animateEaseOutBack;
                 }
             }
 
             &-right {
                 &-in {
                     transform: translateY(0);
-                    animation: loaderElementSlideInRight 0.5s $animateEaseOutBack;
+                    animation: loaderElementSlideInRight 0.4s $animateEaseOutBack;
                 }
                 &-out {
                     transform: translateY(-100%);
-                    animation: loaderElementSlideOutRight 0.5s $animateEaseOutBack;
+                    animation: loaderElementSlideOutRight 0.4s $animateEaseOutBack;
                 }
             }
         }

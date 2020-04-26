@@ -143,7 +143,9 @@ STATIC_URL = '/static/'
 
 if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    COMPRESS_ENABLED = True
 else:
+    COMPRESS_ENABLED = True
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
     COMPRESS_OFFLINE = True
     COMPRESS_ROOT = os.path.join(BASE_DIR, "static")
@@ -152,7 +154,18 @@ else:
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
+    ("text/es6", "django_compressor_js.precompilers.BabelCompiler")
 )
+
+COMPRESS_FILTERS = {
+    'css': [
+        'compressor.filters.css_default.CssAbsoluteFilter',
+        'compressor.filters.cssmin.rCSSMinFilter'
+        ],
+    'js': [
+        'compressor.filters.jsmin.JSMinFilter'
+        ]
+}
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
