@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from dotenv import load_dotenv
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 #Runs dotenv:
 load_dotenv()
@@ -144,8 +146,9 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
     COMPRESS_OFFLINE = True
+    COMPRESS_ROOT = os.path.join(BASE_DIR, "static")
     LIBSASS_OUTPUT_STYLE = 'compressed'
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
@@ -163,3 +166,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+sentry_sdk.init(
+    dsn="https://89d071b0f4614cca9def06bb5f876749@o336993.ingest.sentry.io/5213741",
+    integrations=[DjangoIntegration()],
+    send_default_pii=True
+)
