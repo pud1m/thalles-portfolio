@@ -25,10 +25,17 @@ def about(lang, args):
     }
 
 
-def portfolio(lang, args):
+def portfolio(lang, args=None):
     """Fetches the data for the portfolio page"""
 
-    items = PortfolioItem.objects.filter(enabled=True).order_by('date_added')[0:2]
+    if args is None:
+        initial = 0
+    else:
+        initial = args
+
+
+    #Takes only the response from the initial parameter and the next
+    items = PortfolioItem.objects.filter(enabled=True).order_by('-date_added')[initial:initial + 2]
 
     item_list = []
 
@@ -80,3 +87,5 @@ def skills(lang, args):
 def contact(lang, args):
     """Fetches the data for the contact page"""
     return None
+
+

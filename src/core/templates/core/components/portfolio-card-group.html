@@ -1,0 +1,3 @@
+{% for item in data %}
+    {% include "core/components/portfolio-card.html" with data=item is_last=forloop.last next_page=next_page %}
+{% endfor %}

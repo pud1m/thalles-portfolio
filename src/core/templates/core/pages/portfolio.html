@@ -4,11 +4,12 @@
 {% block content %}
 <section class="section -container -portfolio bg-2">
     <h1 class="title -big c-s2 auto-br max-50-lg ml-n1">{% if page_settings.language == 'pt' %}Portfólio{% else %}Portfolio{% endif %}</h1>
-    <div class="section -portfolio -list">
+    <div class="section -portfolio -list" id="portfolio_list">
         {% for item in data %}
-            {% include "core/components/portfolio-card.html" with data=item %}
+            {% include "core/components/portfolio-card.html" with data=item is_last=forloop.last next_page=2 %}
         {% endfor %}
     </div>
+    <div class="loader -portfolio" id="portfolio_loader"></div>
     <div class="section -portfolio -modal -main bg-3 -hidden" id="portfolio_modal_main">
         <div class="section -portfolio -modal -close c-p2" id="portfolio_modal_close">X</div>
         <h2 class="title -big c-p2" id="portfolio_modal_name"></h2>

@@ -18,6 +18,8 @@ urlpatterns = [
     path('skills', views.skills, name='skills'),
     path('contact', views.contact, name='contact'),
 
+    path('portfolio/more/<int:page>', views.portfolio_endpoint, name='portfolio_endpoint'),
+
 ]
 
 if settings.DEBUG is True:

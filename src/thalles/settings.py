@@ -143,7 +143,7 @@ STATIC_URL = '/static/'
 
 if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
-    COMPRESS_ENABLED = True
+    COMPRESS_ENABLED = False
 else:
     COMPRESS_ENABLED = True
     STATIC_ROOT = os.path.join(BASE_DIR, "static")

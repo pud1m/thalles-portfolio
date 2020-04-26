@@ -1,4 +1,4 @@
-<div class="section -portfolio -list-item">
+<div class="section -portfolio -list-item" {% if is_last %}ic-append-from="{% url 'portfolio_endpoint' next_page %}" ic-trigger-on="scrolled-into-view" ic-target="#portfolio_list" ic-indicator="#portfolio_loader"{% endif %}>
     <div class="section -portfolio -list-item -picture -hasphone">
         <video class="section -portfolio -list-item -picture -phone-video" src="{{data.video.url}}" autoplay loop muted preload="auto" data-job-id="{{data.id}}" data-job-type="video">
             Your browser does not support the video tag

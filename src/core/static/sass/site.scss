@@ -57,4 +57,18 @@ body {
             }
         }
     }
+
+    &.-portfolio {
+        content: url(../img/light-bulb.svg);
+        transform-origin: center bottom;
+        animation: portfolioLoaderBulbBounce 0.4s $animateEaseOutBack 0s infinite alternate;
+        margin: 5% auto;
+
+        @media only screen and (max-width: 768px) {
+            width: 10%;
+        }
+        @media only screen and (min-width: 769px) {
+            width: 7%;
+        } 
+    }
 }
