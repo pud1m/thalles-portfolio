@@ -9,3 +9,5 @@ python-dotenv==0.10.3
 whitenoise==5.0.1
 django_compressor==2.4
 django-libsass==0.8
+pillow==7.0.0
+django-summernote==0.8.11.6

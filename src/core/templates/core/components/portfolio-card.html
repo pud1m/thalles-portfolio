@@ -1,7 +1,6 @@
-
 <div class="section -portfolio -list-item">
     <div class="section -portfolio -list-item -picture -hasphone">
-        <video class="section -portfolio -list-item -picture -phone-video" src="{% static 'img/vid-upline.mp4' %}" autoplay loop muted preload="auto" data-job-id="{{data.id}}" data-job-type="video">
+        <video class="section -portfolio -list-item -picture -phone-video" src="{{data.video.url}}" autoplay loop muted preload="auto" data-job-id="{{data.id}}" data-job-type="video">
             Your browser does not support the video tag
         </video>
     </div>
@@ -9,14 +8,26 @@
         <h2 class="important-text -card-title c-p2" data-job-id="{{data.id}}" data-job-type="name">{{data.name}}</h2>
         <div class="section -portfolio -list-item -info -tags">
             {% for tag in data.tags %}
-            <span class="important-text -tag c-white bg-1">#{{tag}}</span>
+            <span class="important-text -tag c-white 
+            {% if tag == 'backend' %}
+            bg-3
+            {% elif tag == 'devops' %}
+            bg-2
+            {% elif tag == 'frontend' %}
+            bg-1
+            {% else %}
+            bg-4
+            {% endif %}
+            ">#{{tag}}</span>
             {% endfor %}
         </div>
         <div class="section -portfolio -list-item -info -read-about important-text -subtitle">
             <span class="no-decoration c-white read-about-modal-link" data-job-id="{{data.id}}">Ler sobre</span>
         </div>
         <div class="section -portfolio -list-item -info -description article-text c-white" data-job-id="{{data.id}}" data-job-type="description">
+            {% autoescape off %}
             {{data.description}}
+            {% endautoescape %}
         </div>
         <div class="section -portfolio -list-item -info -website important-text -subtitle c-white" data-job-id="{{data.id}}" data-job-type="website">
             {{data.website}}

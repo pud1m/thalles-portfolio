@@ -11,6 +11,17 @@
         align-items: center;
         justify-content: center;
 
+        .-lang-pick {
+            display: none;
+        }
+
+        .-topbar {
+            
+            .social.fill-parent {
+                width: unset;
+            }
+        }
+
         &.-shrunk {
 
             align-items: flex-start;
@@ -27,6 +38,27 @@
 
             .-menu {
                 transform: translateY(0);
+            }
+
+            .-topbar {
+                @media only screen and (max-width: 768px) {
+                    flex-flow: column;
+                }
+                @media only screen and (min-width: 769px) {
+                    flex-flow: row;
+                    width: 80%;
+                } 
+            
+                .social.fill-parent {
+                    @media only screen and (max-width: 768px) {
+                        //
+                    }
+                    @media only screen and (min-width: 769px) {
+                        width: 180%;
+                        margin-left: 22%;
+                        justify-content: flex-start;
+                    } 
+                }
             }
 
             div.social {
@@ -68,7 +100,22 @@
             }
 
             .-lang-pick {
-                display: block;
+                font-family: "Ginger Bold";
+                text-transform: uppercase;
+                font-size: 0.7rem;
+                text-align: center;
+                letter-spacing: 0.15rem;
+        
+                padding: 0.25rem 0;
+                align-items: center;
+                display: flex;
+                justify-content: flex-end;
+
+                @media only screen and (max-width: 768px) {
+                    position: absolute;
+                    right: 3%;
+                    top: 4%;
+                }
             }
 
             .big-text {

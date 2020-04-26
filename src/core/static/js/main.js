@@ -1,16 +1,46 @@
 //Delay function
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+//Remove classes from element by prefix
+const removeClassesByPrefix = (element, prefix) => {
+    let classes = element.className.split(" ").filter(c => !c.startsWith(prefix));
+    element.className = classes.join(" ").trim();
+}
+
 window.onload = (event) => {
+    setElementsColor();
 
     //Home lang picker event listener
     document.querySelectorAll('.lang-pick-home').forEach(element => element.addEventListener('click', shrinkMenu));
 
+    //Menu event listener
+    document.querySelectorAll('.navbar.-menu-item').forEach(element => element.addEventListener('click', changeToPage));
+    document.querySelector('#topbar_lang_switch').addEventListener('click', switchPageLanguage);
+
+    //Page history event listener
+    window.addEventListener('popstate', whenPageHistory);
+
     //Portfolio read-more event listeners
-    document.querySelectorAll('.read-about-modal-link').forEach(element => element.addEventListener('click', openModalPortfolio));
-    document.querySelectorAll('#portfolio_modal_close').forEach(element => element.addEventListener('click', closeModalPortfolio));
+    addPortfolioListeners();
 
     //Skills moving-lamp event listener
+    addBulbListener();
+
+    //Sets the menu language
+    setMenuLanguage();
+    document.querySelector('#topbar_lang_switch').setAttribute('ic-get-from', window.location.pathname);
+    document.querySelector('#topbar_lang_switch').setAttribute('ic-src', window.location.pathname);
+};
+
+const addPortfolioListeners = () => {
+    if (document.querySelector('#portfolio_modal_main')) {
+        document.querySelectorAll('.read-about-modal-link').forEach(element => element.addEventListener('click', openModalPortfolio));
+        document.querySelectorAll('#portfolio_modal_close').forEach(element => element.addEventListener('click', closeModalPortfolio));
+        document.querySelectorAll('video').forEach(video => video.play());
+    }
+}
+
+const addBulbListener = () => {
     if (document.querySelector('.-bulb')) {
         if ( parseInt(window.innerWidth) > 768 ){
             window.addEventListener('mousemove', moveLampDesktop);
@@ -19,13 +49,82 @@ window.onload = (event) => {
             window.addEventListener('deviceorientation', moveLampMobile);
         }
     }
-};
+    else {
+        if ( parseInt(window.innerWidth) > 768 ){
+            window.removeEventListener('mousemove', moveLampDesktop);
+        }
+        else {
+            window.removeEventListener('deviceorientation', moveLampMobile);
+        }
+    }
+}
 
 
-//=======Menu
+//=======Page switching
+
+const whenPageHistory = async () => {
+    await delay(400);
+    await animateTransition('right', 'out');
+
+    setCurrentPage(window.location.pathname.replace('/', ''));
+    setElementsColor();
+    document.querySelectorAll('.lang-pick-home').forEach(element => element.addEventListener('click', shrinkMenu));
+    document.querySelectorAll('.navbar.-menu-item').forEach(element => element.addEventListener('click', changeToPage));
+    window.addEventListener('popstate', whenPageHistory);
+
+    addPortfolioListeners();
+    addBulbListener();
+    clearAnimations();
+}
+
+const changeToPage = async (e) => {
+    let targetPage = e.toElement.getAttribute('data-target');
+
+    await animateTransition('right', 'in');
+    setCurrentPage(targetPage);
+    setElementsColor();
+    await animateTransition('right', 'out');
+
+    addPortfolioListeners();
+    addBulbListener();
+
+    clearAnimations();
+}
+
+const setElementsColor = () => {
+    let colorToUse;
+
+    if (!document.querySelector('nav.navbar.-main').classList.contains('-shrunk')) {
+        colorToUse = 's1'
+    }
+    else {
+        colorToUse = document.querySelector('h1.title')
+        .className.split(" ").filter(
+            c => c.includes('c-')
+            )[0].replace('c-', '');
+    }
+    
+    document.querySelectorAll('.social.-icon').forEach(icon => {
+        removeClassesByPrefix(icon, 'c-b-to-');
+        icon.classList.add('c-b-to-' + colorToUse);
+    })
+
+    let nameStamp = document.querySelector('.name-stamp');
+    let langPicker = document.querySelector('.-lang-pick');
+    removeClassesByPrefix(nameStamp, 'c-');
+    removeClassesByPrefix(langPicker, 'c-');
+    if (colorToUse == 's1') {
+        nameStamp.classList.add('d-none');
+        langPicker.classList.add('c-' + colorToUse);
+    }
+    else {
+        nameStamp.classList.remove('d-none');
+        nameStamp.classList.add('c-' + colorToUse);
+        langPicker.classList.add('c-' + colorToUse);
+    }
+}
 
 const setCurrentPage = (page) => {
-    window.history.pushState("", "Thalles Salles", page);
     document.querySelectorAll('.-menu-item').forEach(item => {
         if(item.getAttribute('data-target') == page){
             item.classList.add('-current');
@@ -34,15 +133,70 @@ const setCurrentPage = (page) => {
             item.classList.remove('-current');
         }
     });
-};
+    setMenuLanguage();
+    document.querySelector('#topbar_lang_switch').setAttribute('ic-get-from', '/' + page);
+    document.querySelector('#topbar_lang_switch').setAttribute('ic-src', '/' + page);
+}
+
+//=======Menu
+
+const setMenuLanguage = () => {
+    let language = document.querySelector('#lang').value;
+
+    if (language != 'pt' && language != 'en') {
+        language = 'en';
+    }
+
+    let menuButtonText = {
+        pt: {
+            about: 'sobre',
+            portfolio: 'portfólio',
+            skills: 'skills',
+            contact: 'contato',
+            picker: 'change<br>language'
+        },
+        en: {
+            about: 'about',
+            portfolio: 'portfolio',
+            skills: 'skills',
+            contact: 'contact',
+            picker: 'trocar<br>idioma'
+        }
+    }
+    
+    document.querySelectorAll('span.-menu-item[data-target]').forEach(menuItem => {
+        let buttonName = menuItem.getAttribute('data-target');
+        menuItem.innerHTML = menuButtonText[language][buttonName];
+    });
+
+    document.querySelector('#topbar_lang_switch').innerHTML = menuButtonText[language].picker;
+}
+
+const switchPageLanguage = async () => {
+    //Intercooler.refresh(window.location.pathname);
+    await animateTransition('up', 'in');
+    setCurrentPage(window.location.pathname.replace('/', ''));
+    setElementsColor();
+    await animateTransition('up', 'out');
+
+    addPortfolioListeners();
+    addBulbListener();
+
+    clearAnimations();
+}
+
+
+
+//=======Menu utilities
 
 const shrinkMenu = async () => { 
     await animateTransition('up', 'in');
+    setElementsColor();
     document.querySelector('#navbar').classList.add('-shrunk');
     setCurrentPage('about');
     await animateTransition('up', 'out');
     clearAnimations();
-};
+}
 
 const animateTransition = async (direction, type) => {
     let slides = document.querySelectorAll('.l-slide');
@@ -57,8 +211,7 @@ const animateTransition = async (direction, type) => {
 
 const clearAnimations = () => {
     document.querySelectorAll('.l-slide').forEach(slide => {
-        let classes = slide.className.split(" ").filter(c => !c.startsWith('-animate-'));
-        slide.className = classes.join(" ").trim();
+        removeClassesByPrefix(slide, '-animate-');
     })
 }
 
@@ -86,6 +239,9 @@ const openModalPortfolio = (source) => {
     document.querySelector('#portfolio_modal_video').setAttribute('src', dataVideo);
     document.querySelector('#portfolio_modal_description').innerHTML = dataDescription;
     document.querySelector('#portfolio_modal_website').innerHTML = dataWebsite;
+    document.querySelector('#portfolio_modal_website').setAttribute('href', 'https://' + dataWebsite);
+
+    document.querySelector('#portfolio_modal_video').play();
 
     document.querySelector('#portfolio_modal_main').classList.add('-on');
     document.querySelector('.navbar.-container').classList.add('hide-send-up');
@@ -121,11 +277,6 @@ const moveLampDesktop = (event) => {
         h: event.clientY
     };
 
-    let axisRotation = {
-        x: mousePos.w/vPort.w,
-        y: mousePos.h/vPort.h
-    }
-
     let axisTranslation = {
         x: (mousePos.w - vPort.w/2)/vPort.w,
         y: (mousePos.h - vPort.h/2)/vPort.h,
@@ -136,20 +287,33 @@ const moveLampDesktop = (event) => {
 }
 
 const moveLampMobile = (event) => {
+    console.log(event);
 
     let orientationRange = {
         b: 180, //beta  (x axis)
         y: 90   //gamma (y axis)
     }
 
-    let maxRotation = 5; //deg
+    let betaValue, gammaValue;
+
+    if (!event.beta) {
+        console.log('hey')
+        betaValue = orientationRange.b;
+        gammaValue = 0;
+    }
+    else {
+        betaValue = event.beta;
+        gammaValue = event.gamma;
+    }
+    
+    let maxRotation = 5;
     
     let deviceRotation = {
-        b: String(maxRotation/orientationRange.b * parseFloat(event.beta)),
-        y: String(maxRotation/orientationRange.y * parseFloat(event.gamma)),
+        b: String(maxRotation/orientationRange.b * parseFloat(betaValue)),
+        y: String(maxRotation/orientationRange.y * parseFloat(gammaValue)),
     }
 
-    let styleRotation = `transform: skew(${deviceRotation.y*2}deg, 0deg) translateY(${deviceRotation.b*10}px)`;
+    let styleRotation = `transform: skew(${deviceRotation.y}deg, 0deg) translateY(${deviceRotation.b*10}px)`;
     document.querySelector('.-bulb').setAttribute('style', styleRotation);
 
 }

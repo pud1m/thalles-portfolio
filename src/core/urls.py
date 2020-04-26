@@ -4,6 +4,8 @@ URL routes for the core app
 
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -14,10 +16,9 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('portfolio', views.portfolio, name='portfolio'),
     path('skills', views.skills, name='skills'),
-
-    # Endpoints
-    path('endpoints/about', views.about, name='endpoint_about'),
-    path('endpoints/portfolio', views.portfolio, name='endpoint_portfolio'),
-    path('endpoints/skills', views.skills, name='endpoint_skills'),
+    path('contact', views.contact, name='contact'),
 
 ]
+
+if settings.DEBUG is True:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

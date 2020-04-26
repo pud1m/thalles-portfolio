@@ -3,7 +3,7 @@
 from django.http import HttpResponse
 from django.template import loader
 #Utils
-from .utils import get_template_type, get_page_settings
+from .utils import render_page, get_template_type
 
 
 
@@ -22,30 +22,25 @@ def about(request):
     """About Page"""
     template = loader.get_template('core/pages/about.html')
 
-    context = {
-        'type': get_template_type(request),
-        'page_settings': get_page_settings('about')
-    }
-    return HttpResponse(template.render(context, request))
+    return render_page(template, request)
 
 
 def portfolio(request):
     """Portfolio Page"""
     template = loader.get_template('core/pages/portfolio.html')
 
-    context = {
-        'type': get_template_type(request),
-        'page_settings': get_page_settings('portfolio')
-    }
-    return HttpResponse(template.render(context, request))
+    return render_page(template, request)
 
 
 def skills(request):
     """Skills Page"""
     template = loader.get_template('core/pages/skills.html')
 
-    context = {
-        'type': get_template_type(request),
-        'page_settings': get_page_settings('skills')
-    }
-    return HttpResponse(template.render(context, request))
+    return render_page(template, request)
+
+
+def contact(request):
+    """Contact Page"""
+    template = loader.get_template('core/pages/contact.html')
+
+    return render_page(template, request)

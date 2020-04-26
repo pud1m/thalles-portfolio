@@ -386,7 +386,7 @@
                     }
                 }
 
-                div:last-of-type {
+                a:last-of-type {
                     margin-top: auto;
                 }
             }
@@ -398,15 +398,15 @@
 
         h1 {
             width: 100%;
+            padding: 1rem 2rem;
         }
-
-        *.-bulb {
+        &.-bulb {
             content: url(../img/light-bulb.svg);
 
             @media only screen and (max-width: 768px) {
                 width: 32%;
                 padding: 0;
-                margin-top: -6vw;
+                margin-top: calc(10px - 9vh);
                 margin-left: -15px;
             }
             @media only screen and (min-width: 769px) {
@@ -414,6 +414,77 @@
                 width: 20%;
                 min-height: calc(60vh - 150px);
                 margin: calc(70px + 8vh) 0 -20% -5%;
+            }
+        }
+
+        &.-content {
+            float: right;
+            z-index: 10;
+
+            @media only screen and (max-width: 768px) {
+                width: 76%;
+            }
+            @media only screen and (min-width: 769px) {
+                width: 76%;
+            }
+        }
+
+        &.-category {
+
+            &.-main {
+                display: flex;
+                flex-flow: column;
+                align-items: flex-end;
+                padding: 0 1rem 2rem 1rem;
+            }
+
+            h2 {
+                text-align: right;
+                padding: 1rem 0;
+            }
+
+            &.-description {
+                text-align: left;
+                padding: 0 1rem 0 0;
+            }
+        }
+    }
+
+    &.-contact {
+
+        &.-main {
+
+            h1 {
+                @media only screen and (max-width: 768px) {
+                    text-align: left;
+                    line-height: 4.5rem;
+                }
+                @media only screen and (min-width: 769px) {
+                    line-height: 7.5rem;
+                }
+            }
+
+            a {
+                text-align: left;
+                display: block;
+                margin: 0;
+
+                @media only screen and (max-width: 768px) {
+                    padding: 0.5rem 0 0 1rem;
+                }
+                @media only screen and (min-width: 769px) {
+                    padding: 1rem 0 0 1rem;
+                }
+
+                &.-title {
+                    margin-top: 1.5rem;
+                }
+
+                &.-subtitle {
+                    @media only screen and (max-width: 768px) {
+                        font-size: 1.15rem;
+                    }
+                }
             }
         }
     }

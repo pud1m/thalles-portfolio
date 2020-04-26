@@ -2,8 +2,8 @@
 
 
 <nav class="navbar -main flex -col -wrap {% if not no_shrink %}-shrunk{% endif %}" id="navbar">
-    <div class="navbar -container flex -wrap">
-        <div class="social -container p-1 fill-parent-sm">
+    <div class="navbar -container -topbar flex -wrap">
+        <div class="social -container p-1 fill-parent">
             <a href="#">
                 <img class="social -icon {{icon_color}}" src="{% static 'img/icons/github.svg' %}">
                 <span class="social -text">/pud1m</span>
@@ -13,25 +13,24 @@
                 <span class="social -text">/thalles-sales</span>
             </a>
         </div>
-        <h1 class="title -really-big c-s1 auto-br max-50-lg">Thalles Sales.</h1>
+        <span class="flex -row -lang-pick no-decoration" id="topbar_lang_switch" ic-get-from="" ic-target="main" ic-src="" ic-trigger-delay="300ms" ic-push-url="true">Language</span>
+        <h1 class="main-title -really-big c-s1 auto-br max-50-lg">Thalles Sales.</h1>
 
         <div class="flex -break"></div>
         <div class="big-text -subtitle c-s1 fill-parent pt-3 flex -row -justify-center">
-            <a href=" " ic-get-from="{% url 'endpoint_about' %}" ic-target="main" ic-trigger-delay="300ms" class="trans-push-siblings px-1 c-s1 no-decoration lang-pick-home">Português</a>
+            <a href=" " ic-get-from="{% url 'about' %}" ic-target="main" ic-trigger-delay="300ms" class="trans-push-siblings px-1 c-s1 no-decoration lang-pick-home" id="lang_pt" ic-push-url="true">Português</a>
             |
-            <a href=" " ic-get-from="{% url 'endpoint_about' %}" ic-target="main" ic-trigger-delay="300ms" class="trans-push-siblings px-1 c-s1 no-decoration lang-pick-home">English</a>
+            <a href=" " ic-get-from="{% url 'about' %}" ic-target="main" ic-trigger-delay="300ms" class="trans-push-siblings px-1 c-s1 no-decoration lang-pick-home" id="lang_en" ic-push-url="true">English</a>
         </div>
     </div>
     <div class="navbar -menu flex -wrap">
-        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'about' %}-current{% endif %}" data-target="about">Sobre</a>
-        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'portfolio' %}-current{% endif %}" data-target="portfolio">Portfolio</a>
-        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'skills' %}-current{% endif %}" data-target="skills">Skills</a>
-        <a href="#" class="navbar -menu-item no-decoration {% if current_page == 'contact' %}-current{% endif %}" data-target="contact">Contato</a>
+        <span class="navbar -menu-item no-decoration {% if current_page == 'about' %}-current{% endif %}" ic-get-from="{% url 'about' %}" ic-target="main" ic-trigger-delay="300ms" data-target="about" ic-push-url="true"></span>
+        <span class="navbar -menu-item no-decoration {% if current_page == 'portfolio' %}-current{% endif %}" ic-get-from="{% url 'portfolio' %}" ic-target="main" ic-trigger-delay="300ms" data-target="portfolio" ic-push-url="true"></span>
+        <span class="navbar -menu-item no-decoration {% if current_page == 'skills' %}-current{% endif %}" ic-get-from="{% url 'skills' %}" ic-target="main" ic-trigger-delay="300ms" data-target="skills" ic-push-url="true"></span>
+        <span class="navbar -menu-item no-decoration {% if current_page == 'contact' %}-current{% endif %}" ic-get-from="{% url 'contact' %}" ic-target="main" ic-trigger-delay="300ms" data-target="contact" ic-push-url="true"></span>
     </div>
 </nav>
 
-{% if stamp_color %}
 <div class="name-stamp {{stamp_color}}">
     Thalles Sales.
 </div>
-{% endif %}

@@ -1,5 +1,4 @@
 {% extends type %}
-{% load static %}
 
 {% block content %}
 <section class="section -container -home bg-1">
@@ -8,12 +7,12 @@
         <h1 class="title -big c-s1 auto-br max-50-lg ml-n1">Thalles Sales.</h1>
         <div class="section -home -profile-container">
             <div class="section -home -profile-info important-text -subtitle c-white m-auto">
-                <span class="d-inline-block">Um jovem desenvolvedor de software em Belo Horizonte.</span>
+                <span class="d-inline-block">{{data.headline}}</span>
             </div>
-            <img class="section -home -profile-picture" src="{% static 'img/profile-pic.jpg' %}">
+            <img class="section -home -profile-picture" src="{{data.picture.url}}">
         </div>
         <div class="section -home -comment article-text c-white">
-            <span class="d-inline-block m-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</span>
+            <span class="d-inline-block m-auto">{% autoescape off %}{{data.description}}{% endautoescape %}</span>
         </div>
     </div>
 </section>

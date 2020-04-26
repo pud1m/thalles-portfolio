@@ -24,10 +24,31 @@ html{
 
 .no-decoration {
     text-decoration: none;
+    cursor: pointer;
 }
 
 
 //Typography for titles
+
+.main-title {
+    font-family: "Ginger Bold";
+
+    &.-really-big {
+        padding: 1rem;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 5.5rem;
+            line-height: 5rem;
+            text-align: center;
+        }
+        @media only screen and (min-width: 769px) {
+            font-size: 12rem;
+            line-height: 11.5rem;
+            text-align: left;
+        }
+    }
+}
+
 .title {
     font-family: "Ginger Bold";
 
@@ -61,10 +82,37 @@ html{
             text-align: left;
         }
     }
+
+    &.-medium {
+        padding: 1rem;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 2.2rem;
+            line-height: 2rem;
+            text-align: left;
+        }
+        @media only screen and (min-width: 769px) {
+            font-size: 4rem;
+            line-height: 3.5rem;
+            text-align: left;
+        }
+    }
 }
 
 .big-text {
     font-family: "Ginger Bold";
+
+    &.-title {
+        text-align: center;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        @media only screen and (min-width: 769px) {
+            font-size: 3.5rem;
+            line-height: 3.5rem;
+        }
+    }
 
     &.-subtitle {
         text-align: center;

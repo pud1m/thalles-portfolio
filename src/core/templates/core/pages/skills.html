@@ -2,8 +2,20 @@
 {% load static %}
 
 {% block content %}
-<section class="section -container -skills bg-3">
-    <h1 class="title -really-big c-s3 auto-br max-50-lg ml-n1">Skills</h1>
+<section class="section -container -skills -main bg-3">
+    <h1 class="title -really-big c-s3 max-50-lg ml-n1">Skills</h1>
     <div class="section -container -skills -bulb"></div>
+    <div class="section -skills -content">
+        {% for category in data %}
+        <div class="section -skills -category -main">
+            <h2 class="title -medium c-s3 max-50-lg ml-n1">#{{category.title}}</h2>
+            <div class="section -skills -category -description article-text">
+                {% autoescape off %}
+                {{category.text}}
+                {% endautoescape %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

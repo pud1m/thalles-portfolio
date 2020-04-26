@@ -82,3 +82,21 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
         transform: translateY(-100%);
     }
 }
+
+@keyframes loaderElementSlideInRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes loaderElementSlideOutRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

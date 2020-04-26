@@ -29,20 +29,19 @@
         <title>Thalles Sales{% block title %}{% endblock %}</title>
     </head>
 
-    <body>
+    <body ic-history-elt="true">
         <div class="site">
             <!-- navbar -->
             {% include "core/navbar.html" with no_shrink=no_shrink current_page=page_settings.current_page icon_color=page_settings.icon_color stamp_color=page_settings.stamp_color %}
 
             <!-- page content -->
             <main>
+                <input type="hidden" class="d-none" id="lang" value="{{page_settings.language}}">
                 {% block content %}
                 {% endblock %}
             </main>
         </div>
 
-        <!-- footer -->
-        {% include "core/footer.html" %}
         {% include "core/loader.html" %}
     </body>
 
