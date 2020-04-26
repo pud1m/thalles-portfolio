@@ -136,6 +136,8 @@ const setCurrentPage = (page) => {
     setMenuLanguage();
     document.querySelector('#topbar_lang_switch').setAttribute('ic-get-from', '/' + page);
     document.querySelector('#topbar_lang_switch').setAttribute('ic-src', '/' + page);
+    
+    menuInAnimation();
 }
 
 //=======Menu
@@ -212,7 +214,14 @@ const animateTransition = async (direction, type) => {
 const clearAnimations = () => {
     document.querySelectorAll('.l-slide').forEach(slide => {
         removeClassesByPrefix(slide, '-animate-');
-    })
+    });
+    document.querySelector('div.navbar.-menu').classList.remove('-animate-in');
+    document.querySelector('div.navbar.-container.-topbar').classList.remove('-animate-in');
+}
+
+const menuInAnimation = () => {
+    document.querySelector('div.navbar.-menu').classList.add('-animate-in');
+    document.querySelector('div.navbar.-container.-topbar').classList.add('-animate-in');
 }
 
 

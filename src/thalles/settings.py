@@ -150,27 +150,25 @@ else:
     COMPRESS_OFFLINE = True
     COMPRESS_ROOT = os.path.join(BASE_DIR, "static")
     LIBSASS_OUTPUT_STYLE = 'compressed'
-    #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    COMPRESS_FILTERS = {
+        'css': [
+            'compressor.filters.css_default.CssAbsoluteFilter',
+            'compressor.filters.cssmin.rCSSMinFilter'
+            ],
+        'js': [
+            'compressor.filters.jsmin.JSMinFilter'
+            ]
+    }
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
     ("text/es6", "django_compressor_js.precompilers.BabelCompiler")
 )
 
-COMPRESS_FILTERS = {
-    'css': [
-        'compressor.filters.css_default.CssAbsoluteFilter',
-        'compressor.filters.cssmin.rCSSMinFilter'
-        ],
-    'js': [
-        'compressor.filters.jsmin.JSMinFilter'
-        ]
-}
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
+    # other finders
     'compressor.finders.CompressorFinder',
 )
 

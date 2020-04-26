@@ -28,6 +28,14 @@ $animateEaseInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
 //Animations
 
 //Generic
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
 @keyframes slideFromRight {
     0% {
         transform: translateX(400%)
