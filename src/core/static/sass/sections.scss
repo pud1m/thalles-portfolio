@@ -452,7 +452,14 @@
                 display: flex;
                 flex-flow: column;
                 align-items: flex-end;
-                padding: 0 1rem 2rem 1rem;
+                @media only screen and (max-width: 768px) {
+                    margin-right: -10vw;
+                    padding: 0 1rem 2.5rem 1rem;
+                }
+                @media only screen and (min-width: 769px) {
+                    width: 76%;
+                    padding: 0 1rem 4rem 1rem;
+                }
             }
 
             h2 {
@@ -463,6 +470,10 @@
             &.-description {
                 text-align: left;
                 padding: 0 1rem 0 0;
+
+                p {
+                    padding: 1rem 0;
+                }
             }
         }
     }

@@ -7,7 +7,22 @@ const removeClassesByPrefix = (element, prefix) => {
     element.className = classes.join(" ").trim();
 }
 
-window.onload = (event) => {
+//Mutation observer
+const processPageLoad = (mutationsList, observer) => {
+    for(let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            pageLoadCheck();
+        }
+    }
+}
+
+const observerConfig = { attributes: true, childList: true, subtree: true };
+const mainObserver = new MutationObserver(processPageLoad);
+const portfolioObserver = new MutationObserver(processPageLoad);
+
+//Onload
+
+const pageLoadCheck = () => {
     setElementsColor();
 
     //Home lang picker event listener
@@ -30,7 +45,19 @@ window.onload = (event) => {
     setMenuLanguage();
     document.querySelector('#topbar_lang_switch').setAttribute('ic-get-from', window.location.pathname);
     document.querySelector('#topbar_lang_switch').setAttribute('ic-src', window.location.pathname);
-};
+
+    let portfolioListNode = document.querySelector('#portfolio_list');
+    let mainNode = document.querySelector('main');
+
+    if (portfolioListNode) {
+        portfolioObserver.observe(portfolioListNode, observerConfig);
+    }
+    else if (mainNode) {
+        mainObserver.observe(mainNode, observerConfig);
+    }
+}
+
+window.onload = (event) => pageLoadCheck ();
 
 const addPortfolioListeners = () => {
     if (document.querySelector('#portfolio_modal_main')) {
@@ -236,7 +263,7 @@ const buildSelectorString = (jobId, type) => {
     return partOne + partTwo
 }
 
-const openModalPortfolio = (source) => {
+const openModalPortfolio = async (source) => {
     let jobId = source.toElement.getAttribute('data-job-id');
 
     let dataName = document.querySelector(buildSelectorString(jobId, 'name')).innerHTML;
@@ -255,6 +282,13 @@ const openModalPortfolio = (source) => {
     document.querySelector('#portfolio_modal_main').classList.add('-on');
     document.querySelector('.navbar.-container').classList.add('hide-send-up');
     document.querySelector('.navbar.-menu').classList.add('hide-send-up-high');
+
+    await delay(400);
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
 }
 
 const closeModalPortfolio = async () => {
@@ -296,7 +330,6 @@ const moveLampDesktop = (event) => {
 }
 
 const moveLampMobile = (event) => {
-    console.log(event);
 
     let orientationRange = {
         b: 180, //beta  (x axis)
@@ -306,7 +339,6 @@ const moveLampMobile = (event) => {
     let betaValue, gammaValue;
 
     if (!event.beta) {
-        console.log('hey')
         betaValue = orientationRange.b;
         gammaValue = 0;
     }
