@@ -30,7 +30,9 @@
             {% endautoescape %}
         </div>
         <div class="section -portfolio -list-item -info -website important-text -subtitle c-white" data-job-id="{{data.id}}" data-job-type="website">
+            {% if data.website %}
             {{data.website}}
+            {% endif %}
         </div>
     </div>
 </div>
