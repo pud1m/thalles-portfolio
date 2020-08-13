@@ -33,7 +33,15 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ['DEBUG_STATUS'] == '1')
 
-ALLOWED_HOSTS = ['localhost', 'thalles-sales.dev', 'www.thalles-sales.dev']
+if DEBUG:
+    ALLOWED_HOSTS = ['localhost']
+else:
+    ALLOWED_HOSTS = [
+        'thalles-sales.dev',
+        'www.thalles-sales.dev',
+        'thalles.dev.br',
+        'www.thalles.dev.br'
+        ]
 
 
 # Application definition
