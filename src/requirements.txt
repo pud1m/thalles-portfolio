@@ -10,6 +10,6 @@ whitenoise==5.0.1
 django_compressor==2.4
 django-libsass==0.8
 django-compressor-js==0.1.0
-pillow==7.1.0
+pillow==8.1.1
 django-summernote==0.8.11.6
 sentry-sdk==0.14.3
