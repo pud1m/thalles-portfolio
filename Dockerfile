@@ -20,10 +20,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
 RUN sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=pt_BR.UTF-8
-ENV LANG pt_BR.UTF-8 
-RUN python manage.py migrate
+    
 
 
 #CMD to run the local server
-#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]!
-CMD ["gunicorn", "--bind", ":8000", "thalles.wsgi:application"]
+#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+RUN python manage.py collecstatic
+ENTRYPOINT ["gunicorn", "--bind", ":8000", "thalles.wsgi:application"]
