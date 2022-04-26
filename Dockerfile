@@ -21,6 +21,7 @@ RUN sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8 
+RUN python manage.py migrate
 
 
 #CMD to run the local server
