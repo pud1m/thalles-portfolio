@@ -13,6 +13,7 @@ COPY /src/requirements.txt /code/
 
 #Installs python dependencies
 RUN pip install -r requirements.txt
+COPY /src/ /code/
 
 #Installs language pack for pt_BR
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
